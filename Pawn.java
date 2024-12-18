@@ -7,30 +7,23 @@ public class Pawn extends Piece {
 
     @Override
     public boolean isValidMove(Position start, Position end, ChessBoard board) {
-        int direction = color.equals("white") ? -1 : 1; // White moves "up", black moves "down"
-
-        // Standard 1-square move forward (no piece in the way)
+        int direction = color.equals("white") ? -1 : 1; 
         if (start.getCol() == end.getCol() && end.getRow() == start.getRow() + direction
                 && board.getPiece(end) == null) {
             return true;
         }
-
-        // First move: 2 squares forward
         if (start.getCol() == end.getCol() &&
                 ((start.getRow() == 6 && color.equals("white")) || (start.getRow() == 1 && color.equals("black"))) &&
                 end.getRow() == start.getRow() + 2 * direction &&
                 board.getPiece(end) == null) {
             Position middle = new Position(start.getRow() + direction, start.getCol());
-            return board.getPiece(middle) == null; // Ensure no piece is blocking the way
+            return board.getPiece(middle) == null; 
         }
-
-        // Diagonal capture
         if (Math.abs(start.getCol() - end.getCol()) == 1 && end.getRow() == start.getRow() + direction &&
                 board.getPiece(end) != null && !board.getPiece(end).getColor().equals(color)) {
             return true;
         }
-
-        return false; // Invalid move
+        return false;
     }
 
     @Override

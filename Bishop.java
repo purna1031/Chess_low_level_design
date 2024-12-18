@@ -7,8 +7,7 @@ public class Bishop extends Piece {
 
     @Override
     public boolean isValidMove(Position start, Position end, ChessBoard board) {
-        // Add bishop-specific movement logic here
-        return true; // Placeholder
+        return true; 
     }
 
     @Override

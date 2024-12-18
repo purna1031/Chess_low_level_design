@@ -7,8 +7,7 @@ public class Queen extends Piece {
 
     @Override
     public boolean isValidMove(Position start, Position end, ChessBoard board) {
-        // Add queen-specific movement logic here
-        return true; // Placeholder
+        return true; 
     }
 
     @Override
